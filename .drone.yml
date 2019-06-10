@@ -15,4 +15,4 @@ pipeline:
     environment:
       - imageTag=${DRONE_BUILD_NUMBER}
       - dockerReg=10.10.20.25:5000
-      - appname=drone:cicd-idpw1
+      - appname=drone:cicd-idpw0
