@@ -2,17 +2,18 @@ pipeline:
   publish:
     image: plugins/docker
     dockerfile: Dockerfile
-    repo: drone:5000/cicd-idpw0
+    repo: drone:5000/idpw
     registry: drone:5000
     insecure: true
     tags: "${DRONE_BUILD_NUMBER}"
-    environment:
+    build_args:
       - version=${DRONE_BUILD_NUMBER}
+      - appname=idpw
   deploy:
     image: ciscodevnet/drone-iox-deploy-img
     commands:
       - python /deploy2FogD.py
     environment:
       - imageTag=${DRONE_BUILD_NUMBER}
-      - dockerReg=10.10.20.25:5000
-      - appname=drone:cicd-idpw0
+      - dockerReg=10.10.20.23:5000
+      - appname=idpw
