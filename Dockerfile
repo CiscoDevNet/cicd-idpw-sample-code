@@ -6,10 +6,11 @@ EXPOSE 8000
 
 COPY main.py /main.py
 
-# ENV version
+ARG version
+ARG appname
 
-LABEL cisco.info.name="cicd-idpw0" \
-      cisco.info.version=0 \
+LABEL cisco.info.name="${appname}" \
+      cisco.info.version="${version}" \
       cisco.info.description="Basic WebApp for IOx" \
       cisco.info.author-link="" \
       cisco.info.author-name="" \
